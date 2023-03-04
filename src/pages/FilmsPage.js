@@ -22,7 +22,7 @@ export const FilmsPage = () => {
     setIsLoading(false)
   }
 
-  const handlePageChange = newPage => {
+  const handleSearchFilmsChange = newPage => {
     setCurrentPage(newPage)
     search(newPage)
   }
@@ -32,7 +32,9 @@ export const FilmsPage = () => {
       <SearchInput
         valueInput={valueInput}
         setValueInput={setValueInput}
-        search={search}
+        handleSearchFilmsChange={handleSearchFilmsChange}
+        isLoading={isLoading}
+        setError={setError}
       />
       {isLoading && <p>Loading...</p>}
       {!isLoading && error && <p>{error}</p>}
@@ -40,11 +42,11 @@ export const FilmsPage = () => {
         <List
           searchResult={searchResult}
           currentPage={currentPage}
-          handlePageChange={handlePageChange}
+          handleSearchFilmsChange={handleSearchFilmsChange}
           lastPage={lastPage}
         />
       )}
-      {!isLoading && !searchResult && !error && (
+      {!isLoading && !searchResult && !error && !valueInput && (
         <h1 className="title">The Open Movie Database, search for films!</h1>
       )}
     </div>

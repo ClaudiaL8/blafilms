@@ -1,10 +1,11 @@
 import React, { useState } from 'react'
 
 export const SearchInput = ({
-  setValueInput,
   valueInput,
-  search,
+  setValueInput,
+  handleSearchFilmsChange,
   isLoading,
+  setError,
 }) => {
   const [inputValidation, setInputValidation] = useState('')
 
@@ -12,13 +13,14 @@ export const SearchInput = ({
     const inputValue = e.target.value
     setValueInput(inputValue)
     handleInputValidation(inputValue)
+    setError('')
   }
 
   const isSearcherDisabled = valueInput.length <= 2 || isLoading
 
   const onKeyDown = ({ key }) => {
     if (!isSearcherDisabled) {
-      key === 'Enter' && search()
+      key === 'Enter' && handleSearchFilmsChange(1)
     }
   }
 
@@ -43,7 +45,10 @@ export const SearchInput = ({
           <span className="searcherInputSpan">{inputValidation}</span>
         )}
       </div>
-      <button onClick={() => search()} disabled={isSearcherDisabled}>
+      <button
+        onClick={() => handleSearchFilmsChange(1)}
+        disabled={isSearcherDisabled}
+      >
         Search
       </button>
     </div>
