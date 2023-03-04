@@ -18,12 +18,20 @@ button {
   color: #a8dadc;
   font-size: 24px;
   border-radius: 0 5px 5px 0;
+  cursor: pointer;
+  height: 68px;
+}
+
+button:disabled {
+  border: 1px solid #999999;
+  background-color: #cccccc;
+  color: #666666;
 }
 
 .search {
   margin-top: 50px;
-  display: grid;
-  grid-template-columns: 25% 40% 10% 25%;
+  display: flex;
+  justify-content: center;
 }
 
 .search-results {
@@ -85,4 +93,17 @@ button {
 
 .search-item .search-item-data .meta {
   font-size: 14px;
+}
+
+.searcherInput {
+  display: flex;
+  flex-direction: column;
+}
+
+.searcherInputSpan {
+  color: red;
+}
+
+.filmPage {
+  text-align: center;
 }
