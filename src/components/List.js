@@ -4,12 +4,8 @@ import placeholderImg from '../placeholder.png'
 import { ReactComponent as ChevronLeft } from '../chevron-left.svg'
 import { ReactComponent as ChevronRight } from '../chevron-right.svg'
 
-export const List = ({
-  searchResult,
-  currentPage,
-  handleSearchFilmsChange,
-  lastPage,
-}) => {
+export const List = ({ data, handleSearchFilmsChange, currentPage }) => {
+  const { lastPage, searchResult } = data
   return (
     <>
       <div className="search-results">

@@ -4,8 +4,10 @@ import { getFilms } from '../methods/getFilms'
 import '../stylesheets/filmsPage.css'
 
 export const FilmsPage = () => {
-  const [searchResult, setSearchResult] = useState(null)
-  const [lastPage, setLastPage] = useState(1)
+  const [data, setData] = useState({
+    searchResult: null,
+    lastPage: 1,
+  })
   const [isLoading, setIsLoading] = useState(false)
   const [error, setError] = useState('')
   const [valueInput, setValueInput] = useState('')
@@ -17,8 +19,10 @@ export const FilmsPage = () => {
       valueInput,
       page,
     )
-    setSearchResult(Search)
-    setLastPage(Math.round(parseInt(totalResults) / 10))
+    setData({
+      searchResult: Search,
+      lastPage: Math.round(parseInt(totalResults) / 10),
+    })
     setError(Error || error)
     setIsLoading(false)
   }
@@ -39,15 +43,14 @@ export const FilmsPage = () => {
       />
       {isLoading && <p>Loading...</p>}
       {!isLoading && error && <p>{error}</p>}
-      {!isLoading && searchResult && (
+      {!isLoading && data.searchResult && (
         <List
-          searchResult={searchResult}
+          data={data}
           currentPage={currentPage}
           handleSearchFilmsChange={handleSearchFilmsChange}
-          lastPage={lastPage}
         />
       )}
-      {!isLoading && !searchResult && !error && !valueInput && (
+      {!isLoading && !data.searchResult && !error && !valueInput && (
         <h1 className="title">The Open Movie Database, search for films!</h1>
       )}
     </div>
