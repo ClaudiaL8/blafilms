@@ -28,7 +28,7 @@ button:disabled {
   color: #666666;
 }
 
-.search {
+.search-input-wrapper {
   margin-top: 50px;
   display: flex;
   justify-content: center;
@@ -96,15 +96,15 @@ button:disabled {
   font-size: 14px;
 }
 
-.searcherInput {
+.search-input {
   display: flex;
   flex-direction: column;
 }
 
-.searcherInputSpan {
+.search-input-span {
   color: red;
 }
 
-.filmPage {
+.films-page {
   text-align: center;
 }

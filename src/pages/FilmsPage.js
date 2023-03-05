@@ -28,7 +28,7 @@ export const FilmsPage = () => {
   }
 
   return (
-    <div className="filmPage">
+    <div className="films-page">
       <SearchInput
         valueInput={valueInput}
         setValueInput={setValueInput}

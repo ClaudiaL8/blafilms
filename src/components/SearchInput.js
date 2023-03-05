@@ -33,8 +33,8 @@ export const SearchInput = ({
   }
 
   return (
-    <div className="search">
-      <div className="searcherInput">
+    <div className="search-input-wrapper">
+      <div className="search-input">
         <input
           type="text"
           placeholder="Search..."
@@ -42,7 +42,7 @@ export const SearchInput = ({
           onKeyDown={onKeyDown}
         />
         {inputValidation && (
-          <span className="searcherInputSpan">{inputValidation}</span>
+          <span className="search-input-span">{inputValidation}</span>
         )}
       </div>
       <button
