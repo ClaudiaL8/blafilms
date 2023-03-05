@@ -1,14 +1,15 @@
 import React, { useState } from 'react'
 import { List, SearchInput } from '../components'
 import { getFilms } from '../methods/getFilms'
+import '../stylesheets/filmsPage.css'
 
 export const FilmsPage = () => {
   const [searchResult, setSearchResult] = useState(null)
-  const [valueInput, setValueInput] = useState('')
-  const [currentPage, setCurrentPage] = useState(1)
   const [lastPage, setLastPage] = useState(1)
   const [isLoading, setIsLoading] = useState(false)
   const [error, setError] = useState('')
+  const [valueInput, setValueInput] = useState('')
+  const [currentPage, setCurrentPage] = useState(1)
 
   const search = async page => {
     setIsLoading(true)

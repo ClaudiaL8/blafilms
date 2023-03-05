@@ -1,4 +1,5 @@
 import React, { useState } from 'react'
+import '../stylesheets/searchInput.css'
 
 export const SearchInput = ({
   valueInput,
