@@ -13,6 +13,19 @@ export const FilmsPage = () => {
   const [valueInput, setValueInput] = useState('')
   const [currentPage, setCurrentPage] = useState(1)
 
+  const uniqueArray = arr => {
+    const uniqueArray = arr.filter((value, index) => {
+      const _value = JSON.stringify(value)
+      return (
+        index ===
+        arr.findIndex(obj => {
+          return JSON.stringify(obj) === _value
+        })
+      )
+    })
+    return uniqueArray
+  }
+
   const search = async page => {
     setIsLoading(true)
     const { Search, totalResults, Error, error } = await getFilms(
@@ -20,7 +33,7 @@ export const FilmsPage = () => {
       page,
     )
     setData({
-      searchResult: Search,
+      searchResult: Search && uniqueArray(Search),
       lastPage: Math.round(parseInt(totalResults) / 10),
     })
     setError(Error || error)

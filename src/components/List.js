@@ -6,6 +6,7 @@ import { ReactComponent as ChevronRight } from '../chevron-right.svg'
 
 export const List = ({ data, handleSearchFilmsChange, currentPage }) => {
   const { lastPage, searchResult } = data
+
   return (
     <>
       <div className="search-results">
