@@ -7,7 +7,7 @@ import { ReactComponent as ChevronRight } from '../chevron-right.svg'
 export const List = ({
   searchResult,
   currentPage,
-  handlePageChange,
+  handleSearchFilmsChange,
   lastPage,
 }) => {
   return (
@@ -17,7 +17,7 @@ export const List = ({
           {currentPage > 1 && (
             <ChevronLeft
               onClick={() => {
-                handlePageChange(currentPage - 1)
+                handleSearchFilmsChange(currentPage - 1)
               }}
             />
           )}
@@ -40,7 +40,7 @@ export const List = ({
           <div className="chevron">
             <ChevronRight
               onClick={() => {
-                handlePageChange(currentPage + 1)
+                handleSearchFilmsChange(currentPage + 1)
               }}
             />
           </div>
